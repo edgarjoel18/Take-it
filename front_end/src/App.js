@@ -4,25 +4,16 @@ import Admin from './pages/Admin';
 import Feed from './pages/Feed';
 import Home from './pages/Home';
 import './App.css';
+import Navbar from './Components/Navbar.js';
 
 // React components
 function App() {
   return (
     <div className="App">
-      <h1>Final Project App</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/admin">Admin</Link>
-          </li>
-          <li>
-            <Link to="/feed">Feed</Link>
-          </li>
-        </ul>
-      </nav>
+      
+      <Navbar/>
+      
+
       <Switch>
         <Route path="/admin">
           <Admin />
