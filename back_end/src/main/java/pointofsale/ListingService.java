@@ -2,9 +2,9 @@ package pointofsale;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-//import parser.ParsedUrl;
-//import processor.Processor;
-//import processor.ProcessorFactory;
+import parser.ParsedUrl;
+import processor.Processor;
+import processor.ProcessorFactory;
 
 public class ListingService {
     private ProcessorFactory processorFactory;
