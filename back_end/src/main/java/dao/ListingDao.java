@@ -1,8 +1,8 @@
-package database;
+package dao;
 
-import com.google.gson.Gson;
 import com.mongodb.client.FindIterable;
 import dto.ListingDto;
+import mongo.MangoConnection;
 import org.bson.Document;
 
 import java.util.ArrayList;

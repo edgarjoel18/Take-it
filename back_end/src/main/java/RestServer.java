@@ -1,7 +1,6 @@
 import com.google.gson.Gson;
-import database.ListingDao;
+import dao.ListingDao;
 import dto.ListingDto;
-import org.bson.Document;
 import spark.Request;
 import spark.Response;
 
