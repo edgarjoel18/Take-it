@@ -1,5 +1,6 @@
-package dao;
+package database;
 
+import com.google.gson.Gson;
 import com.mongodb.client.FindIterable;
 import dto.ListingDto;
 import org.bson.Document;

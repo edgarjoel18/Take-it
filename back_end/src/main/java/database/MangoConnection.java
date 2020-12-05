@@ -1,4 +1,4 @@
-package dao;
+package database;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
@@ -16,7 +16,7 @@ public class MangoConnection {
 
 
     /* Get the Collections from database */
-    public MongoCollection getCollection(String name, Class clazz) {
+    public MongoCollection getCollection(String name){
         return database.getCollection(name);
     }
 
