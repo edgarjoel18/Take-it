@@ -15,7 +15,7 @@ public class ViewListingsProcessor implements Processor{
 
     @Override
     public ResponseDto process(ParsedUrl parsedUrl, String body) {
-        ListingDao list = ListingDao.getInstance();
+        ListingDao list = dao.getInstance();
         List<ListingDto> items = list.getItems();
 
         ResponseDto response = new ResponseDto(new Date(), items, true);
