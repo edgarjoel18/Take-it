@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export class listing extends Component {
 
     render() {
-        console.log(this.props.listing);
+        console.log(this.props.item);
         return (
             
             <div  style = {itemStyle}>
