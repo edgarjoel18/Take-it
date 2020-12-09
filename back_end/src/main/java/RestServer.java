@@ -1,6 +1,8 @@
 import com.google.gson.Gson;
 import dao.ListingDao;
 import dto.ListingDto;
+import pointofsale.ListingService;
+import processor.ViewListingsProcessor;
 import spark.Request;
 import spark.Response;
 
@@ -20,8 +22,11 @@ public class RestServer {
         // Your Handlers go here
         // To get to the home page with the view of listings
         get("/", (req, res) -> {
-            return db.getItems();
-        }, gson::toJson);
+            //res.redirect("/Home.js");
+            res.type("application/json");
+            return ListingService.getInstance().restApi(req.url(),req.body());
+
+        },gson::toJson);
 
         // Route to add a listing, deleteListing, and viewListing
         path("/api", () -> {
