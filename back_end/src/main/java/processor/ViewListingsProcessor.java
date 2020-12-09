@@ -14,8 +14,8 @@ public class ViewListingsProcessor implements Processor{
     private static Gson gson = new Gson();
 
     @Override
-    public ResponseDto process(ParsedUrl parsedUrl, String body) {
-        ListingDao list = dao.getInstance();
+    public ResponseDto processor(ParsedUrl parsedUrl, String body) {
+        ListingDao list = ListingDao.getInstance();
         List<ListingDto> items = list.getItems();
 
         ResponseDto response = new ResponseDto(new Date(), items, true);
