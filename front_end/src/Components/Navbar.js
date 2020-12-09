@@ -10,7 +10,7 @@ export default class Navbar extends Component {
         <div className="container">
 
 
-          <h1 className="NavBar-title">Edgar's App</h1>
+          <h1 className="NavBar-title">App</h1>
 
           <div className="menu-icon">
             <ul>
