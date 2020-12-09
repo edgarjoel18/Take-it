@@ -3,6 +3,7 @@ package mongo;
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import dao.ListingDao;
 
 public class MangoConnection {
      MongoClient mongoClient;
@@ -15,7 +16,7 @@ public class MangoConnection {
 
 
     /* Get the Collections from database */
-    public MongoCollection getCollection(String name){
+    public MongoCollection getCollection(String name, Class<ListingDao> listingDaoClass){
         return database.getCollection(name);
     }
 

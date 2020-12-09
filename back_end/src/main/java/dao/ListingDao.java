@@ -16,6 +16,13 @@ public class ListingDao extends MongoDao<ListingDto> {
     public ListingDao(MangoConnection connection){
         super(connection);
     }
+    public void bindCollection(){
+        // get collection instance here
+
+//    MongoConnection tempConnection = new MongoConnection();
+//    MongoCollection<ListingDao> collection = tempConnection.getCollection("users", ListingDto.class);
+        collection = connection.getCollection("collection",ListingDao.class);
+    }
 
     public static ListingDao getInstance(){
         if(instance == null){
