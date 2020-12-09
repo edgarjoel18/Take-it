@@ -29,6 +29,6 @@ public class ListingService {
     public String restApi(String url, String body) {
         ParsedUrl parse = new ParsedUrl(url);
         Processor proc = processorFactory.getProcessor(parse);
-        return gson.toJson(proc.process(parse, body));
+        return gson.toJson(proc.processor(parse, body));
     }
 }

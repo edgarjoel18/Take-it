@@ -11,7 +11,7 @@ import parser.ParsedUrl;
 public class FilterProcessor implements Processor{
 
     @Override
-    public ResponseDto process(ParsedUrl parsedUrl, String body) {
-        return new ResponseDto(null, null, true);
+    public ResponseDto processor(ParsedUrl parsedUrl, String body) {
+        return null;
     }
 }
