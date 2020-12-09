@@ -31,21 +31,35 @@ public class RestServer {
         get("/", (req, res) -> {
             //res.redirect("/Home.js");
             res.type("application/json");
-            return ListingService.getInstance().restApi(req.url(),req.body());
+            //return ListingService.getInstance().restApi(req.url(),req.body());
+            return gson.toJson(ListingService.getInstance().restApi(req.url(),req.body()));
 
-        },gson::toJson);
+        });
 
         // Route to add a listing, deleteListing, and viewListing
         ListingService listingService = ListingService.getInstance();
-        path("/api", () -> {
-           post("/createListing",(req,res) -> {
-               res.type("application/json");
-               ListingDto obj = gson.fromJson(req.body(),ListingDto.class);
-               db.insert(obj);
-               return db.getItems();
-
-           });
+        post("/api/createListing", (req,res) -> {
+            String jsonObj = req.body();
+            ListingDto listingDto = gson.fromJson(jsonObj,ListingDto.class);
+            if(listingDto == null) {
+                res.status(400);
+                return "Item not created";
+            }
+            db.insert(listingDto);
+            return "user Created";
         });
+
+
+//        path("/api", () -> {
+//           post("/createListing",(req,res) -> {
+//               res.type("application/json");
+//               ListingDto obj = gson.fromJson(req.body(),ListingDto.class);
+//               db.insert(obj);
+//               return db.getItems();
+//
+//           });
+//
+//        });
 
 
 
