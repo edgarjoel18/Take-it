@@ -13,7 +13,7 @@ function App() {
   //might have to prop tunnel from Feed page to App
 
   //var ws = new WebSocket("ws://localhost:1234/ws");
-  
+
 
 
 //   const [message, setMessage] = React.useState('');
@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      
+
       <Navbar/>
       <Switch>
         <Route path="/admin">
@@ -63,7 +63,7 @@ function App() {
           <Feed listings={listings}/>
         </Route>
         <Route path="/">
-          <Home/>
+          <Home />
         </Route>
       </Switch>
     </div>

@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import axios from 'axios';
 
 function ListingDisplay(props) {
-  
+
   if (!props.display) {
     return null;
 
@@ -49,6 +49,12 @@ class Feed extends Component {
     console.log(item);
     axios.post('/api/createListing', { item });
   }
+
+
+
+
+
+
   render() {
     return (
       <div className='feedItems'>
