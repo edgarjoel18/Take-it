@@ -34,11 +34,12 @@ public class RestServer {
             //return ListingService.getInstance().restApi(req.url(),req.body());
             return gson.toJson(ListingService.getInstance().restApi(req.url(),req.body()));
 
-        });
+        },gson::toJson);
 
         // Route to add a listing, deleteListing, and viewListing
         ListingService listingService = ListingService.getInstance();
         post("/api/createListing", (req,res) -> {
+
             String jsonObj = req.body();
             ListingDto listingDto = gson.fromJson(jsonObj,ListingDto.class);
             if(listingDto == null) {
@@ -48,6 +49,32 @@ public class RestServer {
             db.insert(listingDto);
             return "user Created";
         });
+
+
+    }
+    public static String updateListing(Request req, Response res){
+        String postId = req.queryMap().get("postId").value();
+        if(postId != null){
+            // Then we are updating a listing
+
+        }
+        return "no postId";
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //        path("/api", () -> {
@@ -60,7 +87,6 @@ public class RestServer {
 //           });
 //
 //        });
-
 
 
 
@@ -82,15 +108,3 @@ public class RestServer {
 //
 //            put("/updateListings", RestServer::updateListing);
 //        });
-
-
-    }
-    public static String updateListing(Request req, Response res){
-        String postId = req.queryMap().get("postId").value();
-        if(postId != null){
-            // Then we are updating a listing
-
-        }
-        return "no postId";
-    }
-}
