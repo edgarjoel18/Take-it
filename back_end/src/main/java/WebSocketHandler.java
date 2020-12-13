@@ -1,24 +1,31 @@
 import com.google.gson.Gson;
+import dao.ListingDao;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.*;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+import java.sql.SQLOutput;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 @WebSocket
 public class WebSocketHandler {
 
+    private HashMap<Session,Session> sessionMap = new HashMap<>();
+    private List<ListingDao> listings = new ArrayList<>();
+
     @OnWebSocketConnect
     public void connected(Session session) throws IOException {
+        Gson gson = new Gson();
+        sessionMap.put(session,session);
         System.out.println("Client has connected");
+        session.getRemote().sendString(gson.toJson(listings));
     }
 
     @OnWebSocketClose
     public void closed(Session session, int statusCode, String reason){
-        System.out.println("Client has disconnected");
+        sessionMap.remove(session);
+        System.out.println("Client disconnected");
     }
 
     @OnWebSocketMessage
