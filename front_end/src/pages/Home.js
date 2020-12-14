@@ -37,26 +37,26 @@ function Home() {
       </div>
 
       <section id="boxes">
-      <div classname="container">
+      <div className="container">
         <div class="box showcase">
         {<img src={icon1} alt=""/>}
-          <h3 classname="highlight">Quick Listing</h3>
+          <h3 className="highlight">Quick Listing</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div classname="box showcase">
+        <div className="box showcase">
         {<img src={icon2} alt=""/>}
-          <h3 classname="highlight">Streamlined Viewing</h3>
+          <h3 className="highlight">Streamlined Viewing</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
-        <div classname="box showcase">
+        <div className="box showcase">
           {<img src={icon3} alt=""/>}
-          <h3 classname="highlight">Quick Connections</h3>
+          <h3 className="highlight">Quick Connections</h3>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.

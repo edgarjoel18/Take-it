@@ -100,6 +100,7 @@ export class ListingForm extends Component {
     );
   }
 }
+
 const formStyle = {
   backgroundColor: '#e6e6e6',
   padding: '15px',
