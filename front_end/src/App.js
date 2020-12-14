@@ -57,7 +57,7 @@ function App() {
       <Navbar/>
       <Switch>
         <Route path="/admin">
-          <Admin />
+          <Admin listings={listings}/>
         </Route>
         <Route path="/feed">
           <Feed listings={listings}/>
