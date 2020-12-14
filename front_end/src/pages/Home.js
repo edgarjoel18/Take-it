@@ -1,14 +1,20 @@
 import React from 'react';
-import '../Components/Home.css';
+import ContactUs from '../Components/ContactUs';
+import icon1 from './Icons/icon1.png';
+import icon2 from './Icons/icon2.png';
+import icon3 from './Icons/icon3.png';
+
 
 function Home() {
   return (
     <div>
-      <h2>Home Page</h2>
-      <div className='body1'>
-        <img src="https://cdn0.iconfinder.com/data/icons/seo-and-web-1-2/66/35-512.png" alt="online advertising icon"
-          align="right" width="250" height="230"/>
-        <h3><b>About Us</b></h3> 
+      
+      
+      <div className='showcase'>
+        <div><img src="https://cdn0.iconfinder.com/data/icons/seo-and-web-1-2/66/35-512.png" alt="online advertising icon"
+          align="center" width="250" height="230"/></div>
+        
+        <h3><b><span class="highlight">Online Listings</span> made easy!</b></h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             Nullam mattis sapien sollicitudin libero scelerisque facilisis.
             Proin tempus volutpat neque eu maximus. Sed ac nunc massa. 
@@ -17,8 +23,10 @@ function Home() {
             Mauris auctor, mi at faucibus venenatis, ligula purus euismod nisl, 
             nec venenatis nulla ipsum vel nisi.</p>
       </div>
-      <div className='body2'>
-        <h3><b> Online advertising made easier</b></h3>
+
+
+      <div className='showcase'>
+      <h3><b>About Us</b></h3> 
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Nullam mattis sapien sollicitudin libero scelerisque facilisis.
             Proin tempus volutpat neque eu maximus. Sed ac nunc massa. 
@@ -27,25 +35,43 @@ function Home() {
             Mauris auctor, mi at faucibus venenatis, ligula purus euismod nisl, 
             nec venenatis nulla ipsum vel nisi.</p>
       </div>
+
+      <section id="boxes">
+      <div class="container">
+        <div class="box showcase">
+        {<img src={icon1} alt=""/>}
+          <h3 class="highlight">Quick Listing</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="box showcase">
+        {<img src={icon2} alt=""/>}
+          <h3 class="highlight">Streamlined Viewing</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+        <div class="box showcase">
+          {<img src={icon3} alt=""/>}
+          <h3 class="highlight">Quick Connections</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </div>
+    </section>
+
       <br/>
       <ContactUs/>
     </div>
   );
 }
 
-const ContactUs = () =>{
-  return(
-  <div className="contactInfo">
-    <span className="contactTitle"><h3>Contact Us</h3></span>
-    <div className="contactForm">
-     <p> Contact us and we will respond within 24 hours.</p>
-      <p><input type="text" placeholder="Email"/></p>
-      <p><textarea row="40" cols="30" placeholder="Message"/></p>
-      <button>Submit</button>
-    </div>
-  </div>
-  );
-}
+
 
 
 

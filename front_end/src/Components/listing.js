@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 export class listing extends Component {
 
     render() {
-        console.log(this.props.item);
+        //console.log(this.props.item);
         return (
             
             <div  style = {itemStyle}>
@@ -29,10 +29,15 @@ listing.propTypes = {
   }
 
   const itemStyle = {
-    backgroundColor: '#f4f4f4',
-    padding: '10px',
-    borderBottom: '1px solid #ccc',
+    backgroundColor: '#e6e6e6',
+    padding: '13px',
+    border: '1px solid #cccccc',
+    borderTop: '3px solid #e8491d',
     margin: 'auto',
+    textalign: 'center',
+    float: 'center',
+    display: 'inline-block',
+    width: '39%',
   }
 
 

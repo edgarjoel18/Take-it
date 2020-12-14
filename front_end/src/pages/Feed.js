@@ -47,7 +47,8 @@ class Feed extends Component {
       description: '',
     });
     console.log(item);
-    axios.post('/api/createListing', { item });
+    
+    axios.post('/api/createListing', JSON.stringify(item));
   }
 
 
@@ -118,14 +119,18 @@ class Feed extends Component {
     );
   }
 }
+
 Feed.propTypes = {
   listings: propTypes.array.isRequired,
 };
 
 const formStyle = {
-  backgroundColor: '#f4f4f4',
+  backgroundColor: '#e6e6e6',
   padding: '10px',
-  borderBottom: '1px solid #ccc',
+  border: '1px solid #cccccc',
+  //borderTop: '3px solid #e8491d',
   margin: 'auto',
+  width: '80%',
+  textalign: 'center',
 };
 export default Feed;
