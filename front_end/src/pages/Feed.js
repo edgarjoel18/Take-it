@@ -2,119 +2,60 @@ import React, { Component } from 'react';
 import Listing from '../Components/listing';
 import propTypes from 'prop-types';
 import axios from 'axios';
-
+import ListingForm from '../Components/ListingForm';
 function ListingDisplay(props) {
-
   if (!props.display) {
-    return null;
-
+    return <div>No Items Found</div>;
+  } else {
+    console.log(props.search);
+    return props.listings
+      .filter((data) => {
+        if (props.search == null) return data;
+        else if (
+          data.title.toLowerCase().includes(props.search.toLowerCase()) ||
+          data.description.toLowerCase().includes(props.search.toLowerCase()) ||
+          data.type.toLowerCase().includes(props.search.toLowerCase()) ||
+          data.price.toLowerCase().includes(props.search.toLowerCase())
+        ) {
+          return data;
+        }
+      })
+      .map((data) => <Listing key={data.id} item={data} />);
   }
-
-  return props.listings.map((listing) => <Listing key={listing.id} item={listing} />);
 }
 
 class Feed extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      type: '',
-      price: '',
-      description: '',
+      search: null,
     };
-
     this.handleChange = this.onChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state.search);
   }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    const item = {
-      description: this.state.description,
-      type: this.state.type,
-      price: this.state.price,
-      title: this.state.title,
-    };
-
-    this.setState({
-      title: '',
-      type: '',
-      price: '',
-      description: '',
-    });
-    console.log(item);
-    
-    axios.post('/api/createListing', JSON.stringify(item));
-  }
-
-
-
-
-
 
   render() {
     return (
       <div className='feedItems'>
-
-        <div className='postNew'>
-          <form style={formStyle}>
-            <h3>Create a New Posting</h3>
-
-            <label htmlFor='title'>Title </label>
-            <input
-              type='text'
-              id='input-title'
-              name='title'
-              placeholder='Enter title here'
-              value={this.state.title}
-              onChange={this.handleChange}
-              required
-            />
-
-            <label htmlFor='type'> Type </label>
-            <input
-              type='text'
-              id='input-type'
-              name='type'
-              placeholder='Enter type here'
-              value={this.state.type}
-              onChange={this.handleChange}
-              required
-            />
-
-            <div>
-              <label htmlFor='description'>Description</label>
-              <br />
-              <textarea
-                id='input-description'
-                name='description'
-                placeholder='Enter Description here'
-                rows='4'
-                cols='58'
-                value={this.state.description}
-                onChange={this.handleChange}
-                required
-              />
-            </div>
-            <div><label htmlFor='price'>Price </label>
-            <input
-              type='price'
-              id='input-price'
-              name='price'
-              placeholder='Enter price here'
-              value={this.state.price}
-              onChange={this.handleChange}
-              required
-            /></div>
-            <input type='submit' id='submit' name='submit' value='submit' onClick={this.handleSubmit} />
-          </form>
+        <ListingForm />
+        <div style={formStyle}>
+          <label htmlFor='search'>Filter Search</label>
+          <input
+            type='text'
+            id='search'
+            name='search'
+            placeholder='Search Term'
+            value={this.state.title}
+            onChange={this.handleChange}
+            required
+          />
         </div>
 
-        <ListingDisplay display={this.props.listings.length > 0} listings={this.props.listings} />
+        <ListingDisplay display={this.props.listings.length > 0} listings={this.props.listings} search={this.state.search} />
       </div>
     );
   }
@@ -126,7 +67,7 @@ Feed.propTypes = {
 
 const formStyle = {
   backgroundColor: '#e6e6e6',
-  padding: '10px',
+  padding: '15px',
   border: '1px solid #cccccc',
   //borderTop: '3px solid #e8491d',
   margin: 'auto',

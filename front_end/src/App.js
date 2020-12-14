@@ -45,9 +45,11 @@ function App() {
 //  websocket.send(message);
 // }
   const listings = [
-  {"id": 1, "title": "Title1", "type":"tester1", "price":"123", "description":"test desc 1"},
-  {"id": 2, "title": "Title2", "type":"tester2", "price":"123", "description":"test desc 2"},
-  {"id": 3, "title": "Title2", "type":"tester3", "price":"123", "description":"test desc 3"}
+  {"id": 1, "title": "Dog for Adoption", "type":"Dog", "price":"0", "description":"Corgie"},
+  {"id": 2, "title": "Used Car", "type":"Car", "price":"20000", "description":"USED 2019 honda civic"},
+  {"id": 3, "title": "new jorts", "type":"jeans", "price":"10", "description":"factory fresh"},
+  {"id": 4, "title": "foobar", "type":"foo bar", "price":"125", "description":"foobar goes brr"},
+  {"id": 5, "title": "Title2", "type":"tester3", "price":"123", "description":"test desc 3"}
   ];
 
 
