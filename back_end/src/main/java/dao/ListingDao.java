@@ -39,9 +39,10 @@ public class ListingDao extends MongoDao<ListingDto> {
     }
 
     /* Insertion to the database */
-    public void insert(ListingDto item){
-        Document obj = new Document("item",item);
-        collection.insertOne(item);
+    public ListingDto insert (ListingDto item) {
+        System.out.println(item);
+        instance.collection.insertOne(item);
+        return item;
     }
     public void delete(String id){
         Document query = new Document("id",id);
@@ -51,7 +52,6 @@ public class ListingDao extends MongoDao<ListingDto> {
     public List<ListingDto> getItems(){
         FindIterable<ListingDto> list = collection.find();
         ArrayList<ListingDto> result = list.into(new ArrayList<ListingDto>());
-
         return result;
     }
 }

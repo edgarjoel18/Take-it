@@ -47,7 +47,8 @@ class Feed extends Component {
       description: '',
     });
     console.log(item);
-    axios.post('/api/createListing', { item });
+    
+    axios.post('/api/createListing', JSON.stringify(item));
   }
 
 

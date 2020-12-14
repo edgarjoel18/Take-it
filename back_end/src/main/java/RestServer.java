@@ -25,6 +25,7 @@ public class RestServer {
 
         Gson gson = new Gson();
         ListingDao db = ListingDao.getInstance();
+        ListingService listingService = ListingService.getInstance();
 
         // Your Handlers go here
         // To get to the home page with the view of listings
@@ -37,17 +38,10 @@ public class RestServer {
         },gson::toJson);
 
         // Route to add a listing, deleteListing, and viewListing
-        ListingService listingService = ListingService.getInstance();
         post("/api/createListing", (req,res) -> {
-
-            String jsonObj = req.body();
-            ListingDto listingDto = gson.fromJson(jsonObj,ListingDto.class);
-            if(listingDto == null) {
-                res.status(400);
-                return "Item not created";
-            }
-            db.insert(listingDto);
-            return "user Created";
+            System.out.println(req.url());
+            System.out.println(req.body());
+            return listingService.restApi(req.url(),req.body());
         });
 
 
