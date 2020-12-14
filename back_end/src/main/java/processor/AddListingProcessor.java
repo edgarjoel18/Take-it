@@ -8,6 +8,8 @@ import dto.ResponseDto;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 import parser.ParsedUrl;
 
 public class AddListingProcessor implements Processor {
@@ -15,14 +17,13 @@ public class AddListingProcessor implements Processor {
 
     @Override
     public ResponseDto processor(ParsedUrl parsedUrl, String body) {
-        ListingDao list = ListingDao.getInstance();
-        ListingDto item = gson.fromJson(body, new TypeToken<ListingDto>(){}.getType());
-        list.insert(item);
-
-        ArrayList<ListingDto> resp = new ArrayList<ListingDto>();
-        resp.add(item);
-
-        ResponseDto response = new ResponseDto(new Date(), resp, true);
-        return response;
+        Gson gson = new Gson();
+        System.out.println(body);
+        ListingDao instance = ListingDao.getInstance();
+        ListingDto listing = gson.fromJson(body, ListingDto.class);
+        System.out.println(listing);
+        List<ListingDto> response = new ArrayList<>();
+        response.add(instance.insert(listing));
+        return new ResponseDto(new Date(), response, true);
     }
 }
